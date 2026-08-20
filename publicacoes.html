@@ -31,6 +31,38 @@
     .stat-box { background:var(--light); border-radius:8px; padding:24px; text-align:center; border:1px solid var(--border); }
     .stat-num { font-family:'Montserrat',sans-serif; font-weight:800; font-size:2rem; color:var(--dark); margin-bottom:4px; }
     .stat-label { font-size:0.78rem; color:var(--gray); font-family:'Montserrat',sans-serif; font-weight:600; letter-spacing:0.05em; }
+
+    @media (max-width: 900px) {
+      .stats-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pub-card {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .pub-actions {
+        flex-direction: row;
+        width: 100%;
+      }
+      .pub-link {
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-bar {
+        grid-template-columns: 1fr;
+      }
+      .pub-filter {
+        gap: 8px;
+      }
+      .pub-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .pub-card {
+        padding: 18px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -199,5 +231,6 @@
   </div>
   <div class="footer-bottom"><span>© 2026 BAGÉ+ – Geointeligência e Sustentabilidade. Todos os direitos reservados.</span><span style="color:rgba(255,255,255,0.3);">Desenvolvido com geotecnologia e inovação.</span></div>
 </footer>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>

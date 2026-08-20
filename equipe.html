@@ -30,6 +30,24 @@
     .bolsista-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.85rem; color:var(--dark); margin-bottom:2px; }
     .bolsista-info { font-size:0.76rem; color:var(--gray); }
     .bolsista-badge { display:inline-block; font-family:'Montserrat',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:2px 7px; border-radius:3px; margin-top:4px; }
+
+    @media (max-width: 900px) {
+      .equipe-grid,
+      .bolsistas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .equipe-grid,
+      .bolsistas-grid {
+        grid-template-columns: 1fr;
+      }
+      .membro-card,
+      .bolsista-item {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -196,6 +214,22 @@
   </div>
 
   <!-- Colaboradores -->
+  
+      <!-- Ex-bolsistas e antigos colaboradores -->
+      <div class="equipe-section">
+        <div class="equipe-section-title"><span>🕰️</span> Ex-bolsistas e Antigos Colaboradores</div>
+        <div class="bolsistas-grid">
+          <!-- repita este bloco para cada ex-integrante quando tiver os dados -->
+          <div class="bolsista-item">
+            <div class="bolsista-avatar" style="background:rgba(26,46,74,0.06);">👤</div>
+            <div>
+              <div class="bolsista-name">[Nome do Ex-bolsista]</div>
+              <div class="bolsista-info">[Curso] – [Projeto em que atuou] · [Período]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   <div class="equipe-section">
     <div class="equipe-section-title"><span>🤝</span> Colaboradores e Parceiros</div>
     <div class="bolsistas-grid">
@@ -236,6 +270,15 @@
 
 </section>
 
+<!-- Foto coletiva reservada -->
+<section class="py-5 text-center" style="padding:48px 8%;">
+  <div class="container">
+    <h2 class="section-title">Nossa Equipe</h2>
+    <p class="section-desc">Foto coletiva — reservada para quando estiver disponível.</p>
+    <img src="imagens/equipe-coletiva.jpg" alt="Foto da equipe BAGÉ+" class="img-fluid rounded shadow" style="max-width:800px;">
+  </div>
+</section>
+
 <footer>
   <div class="grad-divider grad" style="margin-bottom:48px;border-radius:2px;"></div>
   <div class="footer-grid">
@@ -246,5 +289,6 @@
   </div>
   <div class="footer-bottom"><span>© 2026 BAGÉ+ – Geointeligência e Sustentabilidade. Todos os direitos reservados.</span><span style="color:rgba(255,255,255,0.3);">Desenvolvido com geotecnologia e inovação.</span></div>
 </footer>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>
