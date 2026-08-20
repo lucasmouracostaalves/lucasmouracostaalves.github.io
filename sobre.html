@@ -27,6 +27,23 @@
     .inst-logo { width:80px; height:48px; background:var(--light); border-radius:6px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.9rem; color:var(--dark); margin:0 auto 14px; }
     .inst-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:6px; }
     .inst-desc { font-size:0.8rem; color:var(--gray); line-height:1.6; }
+
+    @media (max-width: 900px) {
+      .sobre-apresentacao {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .obj-grid,
+      .inst-grid {
+        grid-template-columns: 1fr;
+      }
+      .obj-item {
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -67,7 +84,7 @@
 
 <!-- APRESENTAÇÃO -->
 <section>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
+  <div class="sobre-apresentacao" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
     <div>
       <p class="section-label">Apresentação</p>
       <h2 class="section-title">O que é o BAGÉ+?</h2>
@@ -207,5 +224,6 @@
     <span style="color:rgba(255,255,255,0.3);">Desenvolvido com geotecnologia e inovação.</span>
   </div>
 </footer>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>

@@ -44,6 +44,44 @@
     .legend-items { display:flex; flex-wrap:wrap; gap:12px; }
     .legend-item { display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--dark); }
     .legend-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+
+    @media (max-width: 900px) {
+      .mapas-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .mapas-sidebar {
+        position: static;
+      }
+      .mapa-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      #map-container {
+        height: 420px;
+      }
+      .mapa-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mapas-layout {
+        gap: 16px;
+      }
+      #map-container {
+        height: 330px;
+      }
+      .mapa-header {
+        align-items: stretch;
+      }
+      .mapa-title {
+        font-size: 1.1rem;
+      }
+      .mapa-item {
+        padding: 10px 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -297,5 +335,6 @@
     <span style="color:rgba(255,255,255,0.3);">Desenvolvido com geotecnologia e inovação.</span>
   </div>
 </footer>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>

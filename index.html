@@ -47,6 +47,7 @@
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--dark); text-decoration: none; letter-spacing: 0.04em; transition: color .2s; }
     .nav-links a:hover { color: var(--teal); }
+    .mobile-menu-toggle { display:none; }
     .nav-bar { position: fixed; top: 64px; left: 0; right: 0; height: 3px; }
 
     /* ── HERO ── */
@@ -241,6 +242,14 @@
       .noticias-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       nav .nav-links { display: none; }
+      .mobile-menu-toggle { display:flex; width:42px; height:38px; padding:8px 9px; border:1px solid var(--border); border-radius:4px; background:white; flex-direction:column; justify-content:center; gap:5px; cursor:pointer; }
+      .mobile-menu-toggle span { display:block; width:100%; height:2px; background:var(--dark); transition:transform .2s, opacity .2s; }
+      nav.menu-open .mobile-menu-toggle span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+      nav.menu-open .mobile-menu-toggle span:nth-child(2) { opacity:0; }
+      nav.menu-open .mobile-menu-toggle span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+      nav.menu-open .nav-links { display:flex; position:absolute; top:100%; left:0; right:0; padding:12px 20px 16px; background:rgba(255,255,255,0.98); border-bottom:1px solid var(--border); box-shadow:0 12px 24px rgba(26,46,74,0.08); flex-direction:column; gap:0; }
+      nav.menu-open .nav-links a { display:block; padding:12px 0; border-bottom:1px solid var(--border); }
+      nav.menu-open .nav-links li:last-child a { border-bottom:0; }
     }
     @media (max-width: 600px) {
       section { padding: 60px 5%; }
@@ -280,7 +289,7 @@
     <li><a href="projetos.html">Projetos</a></li>
     <li><a href="#noticias">Notícias</a></li>
     <li><a href="#parceiros">Parceiros</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="contato.html">Contato</a></li>
   </ul>
 </nav>
 <div class="nav-bar grad"></div>
@@ -302,7 +311,7 @@
     </p>
     <div class="hero-actions">
       <a href="sobre.html" class="btn-primary">Conheça o Projeto →</a>
-      <a href="eixos.html" class="btn-secondary">Explorar os Eixos</a>
+      <a href="dados-e-sistemas.html" class="btn-secondary">Acesse Dados e Sistemas</a>
     </div>
   </div>
   <div class="hero-image">
@@ -312,275 +321,6 @@
 
 <div class="grad-divider grad"></div>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
-    <div>
-      <p class="section-label">Apresentação</p>
-      <h2 class="section-title">Um observatório territorial para Bagé</h2>
-      <p class="hero-desc" style="margin-bottom:20px;">
-        O BAGÉ+ é uma iniciativa de pesquisa, desenvolvimento e inovação que reúne projetos voltados
-        à produção de conhecimento e ao desenvolvimento de soluções tecnológicas para a gestão
-        sustentável do município de Bagé.
-      </p>
-      <p class="hero-desc">
-        Com base em geotecnologias, ciência de dados e sistemas de informações geográficas,
-        o BAGÉ+ integra dados, território e inovação para enfrentar desafios urbanos, ambientais,
-        rurais e sociais — contribuindo para uma cidade mais inteligente e resiliente.
-      </p>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-      <div style="background:var(--light); border-radius:8px; padding:24px; border-left:3px solid var(--teal);">
-        <div style="font-size:1.6rem; margin-bottom:10px;">🏛️</div>
-        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:6px;">Gestão Pública</div>
-        <div style="font-size:0.8rem; color:var(--gray); line-height:1.6;">Apoio à Prefeitura e secretarias com dados territoriais qualificados.</div>
-      </div>
-      <div style="background:var(--light); border-radius:8px; padding:24px; border-left:3px solid var(--green);">
-        <div style="font-size:1.6rem; margin-bottom:10px;">🎓</div>
-        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:6px;">Comunidade Acadêmica</div>
-        <div style="font-size:0.8rem; color:var(--gray); line-height:1.6;">Pesquisa e formação de recursos humanos em geotecnologias.</div>
-      </div>
-      <div style="background:var(--light); border-radius:8px; padding:24px; border-left:3px solid var(--orange);">
-        <div style="font-size:1.6rem; margin-bottom:10px;">👥</div>
-        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:6px;">Sociedade Civil</div>
-        <div style="font-size:0.8rem; color:var(--gray); line-height:1.6;">Transparência, dados abertos e participação cidadã.</div>
-      </div>
-      <div style="background:var(--light); border-radius:8px; padding:24px; border-left:3px solid var(--purple);">
-        <div style="font-size:1.6rem; margin-bottom:10px;">🤝</div>
-        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; color:var(--dark); margin-bottom:6px;">Parceiros</div>
-        <div style="font-size:0.8rem; color:var(--gray); line-height:1.6;">UNIPAMPA, Prefeitura e instituições de pesquisa.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="grad-divider grad"></div>
-
-<!-- EIXOS -->
-<section id="eixos">
-  <div class="eixos-header">
-    <div>
-      <p class="section-label">Estrutura Temática</p>
-      <h2 class="section-title">Sete Eixos Estratégicos</h2>
-    </div>
-    <p class="section-desc">Cada eixo concentra projetos, indicadores e ferramentas para um tema específico do território municipal.</p>
-  </div>
-  <div class="eixos-grid">
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 01</div>
-      <span class="eixo-icon">🛣️</span>
-      <div class="eixo-title">Infraestrutura e Mobilidade Urbana</div>
-      <div class="eixo-desc">Sistema viário, pavimentação, calçadas, acessibilidade, mobilidade urbana e equipamentos públicos.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 02</div>
-      <span class="eixo-icon">💧</span>
-      <div class="eixo-title">Recursos Hídricos e Drenagem</div>
-      <div class="eixo-desc">Rede de drenagem, áreas inundáveis, Bacia da Arvorezinha, reservatórios e modelos hidrológicos.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 03</div>
-      <span class="eixo-icon">🌿</span>
-      <div class="eixo-title">Meio Ambiente e Sustentabilidade</div>
-      <div class="eixo-desc">Uso e cobertura da terra, APPs, arborização urbana, áreas verdes e monitoramento ambiental.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 04</div>
-      <span class="eixo-icon">🏙️</span>
-      <div class="eixo-title">Planejamento Territorial e Desenvolvimento Urbano</div>
-      <div class="eixo-desc">Zoneamento, cadastro territorial, expansão urbana, vazios urbanos e regularização fundiária.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 05</div>
-      <span class="eixo-icon">🌾</span>
-      <div class="eixo-title">Desenvolvimento Rural e Periurbano</div>
-      <div class="eixo-desc">Estradas vicinais, uso da terra rural, produção agropecuária e integração urbano-rural.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 06</div>
-      <span class="eixo-icon">📊</span>
-      <div class="eixo-title">Governança Territorial e Dados Abertos</div>
-      <div class="eixo-desc">Portal SIG, infraestrutura de dados espaciais, dashboards, dados abertos e indicadores municipais.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-    <div class="eixo-card">
-      <div class="eixo-num">EIXO 07</div>
-      <span class="eixo-icon">🎓</span>
-      <div class="eixo-title">Educação, Inovação e Participação Social</div>
-      <div class="eixo-desc">Formação de alunos, capacitação de servidores, oficinas, ciência cidadã e extensão universitária.</div>
-      <a href="eixos.html" class="eixo-link">Saiba mais →</a>
-    </div>
-  </div>
-</section>
-
-<div class="grad-divider grad"></div>
-
-<!-- PROJETOS -->
-<section id="projetos">
-  <div class="projetos-header">
-    <p class="section-label">Projetos em Destaque</p>
-    <h2 class="section-title">Soluções tecnológicas para o território</h2>
-  </div>
-  <div class="projetos-grid">
-    <div class="projeto-card">
-      <div class="projeto-img projeto-img-1">🗺️</div>
-      <div class="projeto-body">
-        <span class="projeto-tag">Infraestrutura</span>
-        <div class="projeto-title">GeoVias</div>
-        <div class="projeto-desc">Sistema de apoio ao inventário e análise da infraestrutura viária municipal de Bagé.</div>
-        <a href="projetos.html" class="projeto-link">Ver projeto →</a>
-      </div>
-    </div>
-    <div class="projeto-card">
-      <div class="projeto-img projeto-img-2">🌧️</div>
-      <div class="projeto-body">
-        <span class="projeto-tag">Recursos Hídricos</span>
-        <div class="projeto-title">PLUVIAH</div>
-        <div class="projeto-desc">Plataforma para análise pluviométrica, hidrológica e de recursos hídricos do município.</div>
-        <a href="projetos.html" class="projeto-link">Ver projeto →</a>
-      </div>
-    </div>
-    <div class="projeto-card">
-      <div class="projeto-img projeto-img-3">🔵</div>
-      <div class="projeto-body">
-        <span class="projeto-tag">Gestão de Reservatórios</span>
-        <div class="projeto-title">SISGAR</div>
-        <div class="projeto-desc">Sistema para análise e gestão de reservatórios hídricos do município de Bagé.</div>
-        <a href="projetos.html" class="projeto-link">Ver projeto →</a>
-      </div>
-    </div>
-    <div class="projeto-card">
-      <div class="projeto-img projeto-img-4">🏔️</div>
-      <div class="projeto-body">
-        <span class="projeto-tag">Hidrografia</span>
-        <div class="projeto-title">Bacia da Arvorezinha</div>
-        <div class="projeto-desc">Estudos integrados da bacia hidrográfica e dos recursos hídricos da região.</div>
-        <a href="projetos.html" class="projeto-link">Ver projeto →</a>
-      </div>
-    </div>
-    <div class="projeto-card">
-      <div class="projeto-img projeto-img-5">🌐</div>
-      <div class="projeto-body">
-        <span class="projeto-tag">Dados Espaciais</span>
-        <div class="projeto-title">Portal SIG Municipal</div>
-        <div class="projeto-desc">Estruturação da infraestrutura de dados espaciais do município de Bagé.</div>
-        <a href="projetos.html" class="projeto-link">Ver projeto →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="grad-divider grad"></div>
-
-<!-- NOTICIAS -->
-<section id="noticias">
-  <div class="noticias-header">
-    <div>
-      <p class="section-label">Novidades</p>
-      <h2 class="section-title">Notícias Recentes</h2>
-    </div>
-    <a href="publicacoes.html" class="btn-secondary" style="white-space:nowrap;">Ver todas →</a>
-  </div>
-  <div class="noticias-grid">
-    <div class="noticia-card">
-      <div class="noticia-img noticia-img-1">🌿</div>
-      <div class="noticia-body">
-        <div class="noticia-date">Junho 2026</div>
-        <div class="noticia-title">BAGÉ+ lança portal de geointeligência para o município</div>
-        <div class="noticia-excerpt">Iniciativa da UNIPAMPA integra dados territoriais e ferramentas tecnológicas para apoiar o planejamento sustentável de Bagé.</div>
-      </div>
-    </div>
-    <div class="noticia-card">
-      <div class="noticia-img noticia-img-2">💧</div>
-      <div class="noticia-body">
-        <div class="noticia-date">Maio 2026</div>
-        <div class="noticia-title">PLUVIAH: nova plataforma de monitoramento hídrico entra em operação</div>
-        <div class="noticia-excerpt">Ferramenta permite análise pluviométrica e hidrológica em tempo real, apoiando a gestão dos recursos hídricos municipais.</div>
-      </div>
-    </div>
-    <div class="noticia-card">
-      <div class="noticia-img noticia-img-3">🗺️</div>
-      <div class="noticia-body">
-        <div class="noticia-date">Abril 2026</div>
-        <div class="noticia-title">GeoVias avança no mapeamento da malha viária urbana de Bagé</div>
-        <div class="noticia-excerpt">Projeto já mapeou mais de 400 km de vias, gerando indicadores de infraestrutura para subsidiar políticas públicas municipais.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARCEIROS -->
-<section id="parceiros">
-  <div class="grad-divider grad" style="margin-bottom:64px; border-radius:2px;"></div>
-  <p class="parceiros-title">Parceiros e Instituições</p>
-  <div class="parceiros-grid">
-    <div class="parceiro-item">
-      <div class="parceiro-logo">UNIPAMPA</div>
-      <span class="parceiro-name">Universidade Federal do Pampa</span>
-    </div>
-    <div class="parceiro-item">
-      <div class="parceiro-logo" style="font-size:0.85rem; text-align:center; padding:4px;">PREFEITURA<br>BAGÉ</div>
-      <span class="parceiro-name">Prefeitura Municipal de Bagé</span>
-    </div>
-    <div class="parceiro-item">
-      <div class="parceiro-logo" style="font-size:0.8rem;">CNPq</div>
-      <span class="parceiro-name">Conselho Nacional de Pesquisa</span>
-    </div>
-    <div class="parceiro-item">
-      <div class="parceiro-logo" style="font-size:0.8rem;">FAPERGS</div>
-      <span class="parceiro-name">Fundação de Amparo à Pesquisa RS</span>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="contato">
-  <div class="grad-divider grad" style="margin-bottom:48px; border-radius:2px;"></div>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand-name">BAGÉ+</div>
-      <div class="footer-brand-sub">Geointeligência e Sustentabilidade</div>
-      <div class="footer-brand-desc">Programa de pesquisa, desenvolvimento e inovação voltado à aplicação de geotecnologias e ciência de dados para o desenvolvimento sustentável do município de Bagé.</div>
-    </div>
-    <div>
-      <div class="footer-col-title">Links Rápidos</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="eixos.html">Eixos</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Conteúdo</div>
-      <ul class="footer-links">
-        <li><a href="mapas.html">Mapas</a></li>
-        <li><a href="publicacoes.html">Publicações</a></li>
-        <li><a href="equipe.html">Equipe</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contato</div>
-      <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span> bage.mais@unipampa.edu.br</div>
-      <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> Bagé, Rio Grande do Sul, Brasil</div>
-      <div class="footer-social">
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">▶</a>
-        <a href="#" class="social-btn" style="font-size:0.7rem;">Git</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 BAGÉ+ – Geointeligência e Sustentabilidade. Todos os direitos reservados.</span>
-    <span style="color:rgba(255,255,255,0.3);">Desenvolvido com geotecnologia e inovação.</span>
-  </div>
-</footer>
 
 <script>
   // Smooth scroll offset for fixed nav
@@ -594,5 +334,6 @@
     });
   });
 </script>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>
